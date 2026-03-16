@@ -5,9 +5,6 @@ A modern, Material Design-inspired Streamlit dashboard for project configuration
 app.py: The main Streamlit entry point featuring a flattened, high-performance UI layout.
 state_io.py: A utility module handling the serialization and deserialization of the application state as a json string dump.
 
-# 📂 Logic Overview: state_io.py
-The state_io module acts as the data persistence layer for the application.
-
 # 💾 Streamlit State Persistence Demo
 
 A modern, high-performance dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
