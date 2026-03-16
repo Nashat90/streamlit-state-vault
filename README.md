@@ -1,36 +1,25 @@
-# :material/sdk: Streamlit State-IO Demo
+# Streamlit State Manager
+A modern, Material Design-inspired Streamlit dashboard for project configuration. This application demonstrates advanced Session State management, including the ability to save progress to a local JSON file and reload settings dynamically.
 
-A modern, high-performance Streamlit dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
+# 📦 Project Structure
+app.py: The main Streamlit entry point featuring a flattened, high-performance UI layout.
+state_io.py: A utility module handling the serialization and deserialization of the application state as a json string dump.
 
-## :material/visibility: Overview
-This repository serves as a technical demonstration of a **"Save & Resume"** workflow. Built with a flattened, non-nested UI architecture and official Google Material Symbols, it provides a sleek user experience while solving common data persistence challenges in Streamlit.
+# 📂 Logic Overview: state_io.py
+The state_io module acts as the data persistence layer for the application.
 
----
+save_checkpoint()
+Converts the current st.session_state into a JSON-serializable format.
 
-## :material/star: Key Features
-* **:material/save_as: State Serialization**: Transform the active `st.session_state` into a portable JSON snapshot.
-* **:material/restore: Instant Recovery**: Upload a previous save file to instantly reconstruct the UI and data models.
-* **:material/calendar_sync: Smart Date Handling**: Automatically handles the conversion of `datetime` objects to and from JSON (a common pain point).
-* **:material/bolt: No-Indentation UI**: A flattened code structure using modern Streamlit layout variables for better readability and performance.
-* **:material/target: UI Syncing**: Implementation of widget `key` parameters to prevent "snap-back" bugs and state conflicts.
+Date Handling: Automatically detects keys containing "date" and converts datetime objects into strings to prevent JSON serialization errors.
 
----
+Export: Returns a formatted JSON string ready for the st.download_button.
 
-## :material/architecture: How the State Saving Works
+load_file_content()
+Restores the application state from a user-uploaded file.
 
-The demo relies on the `state_io.py` utility module to manage the data lifecycle:
+Validation: Checks if a file is present and decodes the UTF-8 byte stream into a Python dictionary.
 
-### :material/download: 1. Capturing the Snapshot
-The `save_checkpoint()` function captures the current dictionary of user inputs. It performs a "date-check" on all keys; if a key contains the word "date," it converts the Python `datetime` object into a ISO-format string so it can be safely written to a JSON file.
+Date Reconstruction: Scans for "date" keys and converts string values back into proper datetime.date objects for Streamlit widgets.
 
-### :material/upload: 2. Restoring the Snapshot
-The `load_file_content()` function reads the uploaded bytes, decodes the UTF-8 string, and parses the JSON. Crucially, it reverses the serialization by searching for "date" keys and casting the strings back into native Python `date` objects so the Streamlit `date_input` widgets don't crash.
-
----
-
-## :material/terminal: Getting Started
-
-### 1. Clone the repository
-```bash
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-cd your-repo-name
+State Injection: Dynamically updates st.session_state with the loaded values and provides a visual toast notification upon success.
