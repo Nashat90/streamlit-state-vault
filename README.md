@@ -14,12 +14,6 @@ To run this project locally on your machine, follow these steps:
    ```bash
    pip install streamlit
 
-# 💾 Streamlit State Persistence Demo
-
-A modern, high-performance dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
-
----
-
 ## 🚀 How to Use the App
 
 Follow these steps to manage your project configurations and utilize the state-saving features:
@@ -37,6 +31,9 @@ To get your settings back at a later time (or after refreshing the page), use th
 Once the file is uploaded, click the **"Load Last Save"** button. The app will process the file, reconstruct the data types (like dates), and instantly refresh the UI with your saved values.
 
 ---
+# 💾 Streamlit State Persistence Demo
+
+A modern, high-performance dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
 
 ## 🛠️ State Persistence Layer (`state_io.py`)
 
