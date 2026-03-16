@@ -8,36 +8,6 @@ state_io.py: A utility module handling the serialization and deserialization of 
 # 📂 Logic Overview: state_io.py
 The state_io module acts as the data persistence layer for the application.
 
-save_checkpoint()
-Converts the current st.session_state into a JSON-serializable format.
-
-Date Handling: Automatically detects keys containing "date" and converts datetime objects into strings to prevent JSON serialization errors.
-
-Export: Returns a formatted JSON string ready for the st.download_button.
-
-load_file_content()
-Restores the application state from a user-uploaded file.
-
-Validation: Checks if a file is present and decodes the UTF-8 byte stream into a Python dictionary.
-
-Date Reconstruction: Scans for "date" keys and converts string values back into proper datetime.date objects for Streamlit widgets.
-
-State Injection: Dynamically updates st.session_state with the loaded values and provides a visual toast notification upon success.
-
-To use this persistence layer in your main app, follow this pattern:
-
-```python
-from state_io import save_checkpoint, load_file_content
-
-# Save current session
-current_data = {key: st.session_state[key] for key in defaults.keys()}
-json_data = save_checkpoint(current_data)
-
-# Load uploaded session
-if st.button(":material/upload: Load Last Save"):
-    load_file_content(data_loader, st)
-
-
 # 💾 Streamlit State Persistence Demo
 
 A modern, high-performance dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
