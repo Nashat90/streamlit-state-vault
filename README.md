@@ -21,13 +21,13 @@ Follow these steps to manage your project configurations and utilize the state-s
 ### 📝 1. Configure Settings
 Interact with the UI components (Project Name, Date, Difficulty, etc.) to set your desired values. The application stores these temporarily in the session state as you change them.
 
-### 💾 2. Save Progress
+#### 💾 2. Save Progress
 Click the **"Save Progress"** button. This will trigger a download of a file named `proj-da-snapshot.json`. This file contains all your current UI settings in a structured format.
 
-### 📂 3. Prepare for Reload
+#### 📂 3. Prepare for Reload
 To get your settings back at a later time (or after refreshing the page), use the file uploader at the top to **drag and drop** your previously saved `.json` file.
 
-### 🔄 4. Load Snapshot
+#### 🔄 4. Load Snapshot
 Once the file is uploaded, click the **"Load Last Save"** button. The app will process the file, reconstruct the data types (like dates), and instantly refresh the UI with your saved values.
 
 ---
