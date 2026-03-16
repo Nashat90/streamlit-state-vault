@@ -1,11 +1,11 @@
 # Streamlit State Manager
 A modern, Material Design-inspired Streamlit dashboard for project configuration. This application demonstrates advanced Session State management, including the ability to save progress to a local JSON file and reload settings dynamically.
 
-# 📦 Project Structure
+## 📦 Project Structure
 app.py: The main Streamlit entry point featuring a flattened, high-performance UI layout.
 state_io.py: A utility module handling the serialization and deserialization of the application state as a json string dump.
 
-# 💾 Streamlit State Persistence Demo
+## 💾 Streamlit State Persistence Demo
 
 A modern, high-performance dashboard designed to demonstrate **advanced session state persistence**. This project showcases how to bridge the gap between volatile web sessions and permanent storage using JSON serialization.
 
