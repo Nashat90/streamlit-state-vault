@@ -13,7 +13,6 @@ To run this project locally on your machine, follow these steps:
 2. **Install Dependencies**: Ensure you have Streamlit installed:
    ```bash
    pip install streamlit
-```
 
 # 💾 Streamlit State Persistence Demo
 
